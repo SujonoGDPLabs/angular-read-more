@@ -1,11 +1,11 @@
 {
-  "name": "angular-read-more",
+  "name": "sj-angular-read-more",
   "version": "1.0.5",
   "description": "Simple AngularJS Read More Directive",
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ismarslomic/angular-read-more.git"
+    "url": "git://github.com/SujonoGDPLabs/angular-read-more.git"
   },
   "keywords": [
     "angular",
@@ -24,10 +24,7 @@
     }
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ismarslomic/angular-read-more/issues"
-  },
-  "homepage": "https://github.com/ismarslomic/angular-read-more",
+  "homepage": "https://github.com/SujonoGDPLabs/angular-read-more",
   "devDependencies": {
     "browser-sync": "^2.11.2",
     "coveralls": "^2.11.8",
