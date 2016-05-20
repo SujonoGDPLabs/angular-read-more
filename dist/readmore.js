@@ -41,27 +41,22 @@ function readMore($templateCache) {
 
 		// Toggle functions
 		function setToggleMoreText() {
-			$log.debug('setToggleMoreText');
 			vm.toggle.moreText = vm.hmMoreText || 'Read more';
 		}
 
 		function setToggleLessText() {
-			$log.debug('setToggleLessText');
 			vm.toggle.lessText = vm.hmLessText || 'Read less';
 		}
 
 		function setCurrentToggleText() {
-			$log.debug('setCurrentToggleText');
 			vm.toggle.text = vm.toggle.state ? vm.toggle.lessText : vm.toggle.moreText;
 		}
 
 		function setShowToggle() {
-			$log.debug('setShowToggle');
 			vm.toggle.show = vm.moreText && vm.moreText.length > 0;
 		}
 
 		vm.doToggle = function () {
-			$log.debug('doToggle');
 			vm.toggle.state = !vm.toggle.state;
 			vm.showMoreText = !vm.showMoreText;
 			setCurrentToggleText();
@@ -69,7 +64,6 @@ function readMore($templateCache) {
 
 		$scope.$watch('vm.hmMoreText', function (newValue, oldValue) {
 			if (newValue != oldValue) {
-				$log.debug('hmMoreText changed');
 				setToggleMoreText();
 				setCurrentToggleText();
 			}
@@ -77,7 +71,6 @@ function readMore($templateCache) {
 
 		$scope.$watch('vm.hmLessText', function (newValue, oldValue) {
 			if (newValue != oldValue) {
-				$log.debug('hmLessText changed');
 				setToggleLessText();
 				setCurrentToggleText();
 			}
@@ -85,14 +78,12 @@ function readMore($templateCache) {
 
 		$scope.$watch('vm.hmDotsClass', function (newValue, oldValue) {
 			if (newValue != oldValue) {
-				$log.debug('hmDotsClass changed');
 				vm.toggle.dotsClass = vm.hmDotsClass;
 			}
 		});
 
 		$scope.$watch('vm.hmLinkClass', function (newValue, oldValue) {
 			if (newValue != oldValue) {
-				$log.debug('hmLinkClass changed');
 				vm.toggle.linkClass = vm.hmLinkClass;
 			}
 		});
@@ -101,23 +92,19 @@ function readMore($templateCache) {
 
 		// If negative number, set to undefined
 		function validateLimit() {
-			$log.debug('validateLimit');
 			vm.hmLimit = (vm.hmLimit && vm.hmLimit <= 0) ? undefined : vm.hmLimit;
 		}
 
 		function getMoreTextLimit() {
-			$log.debug('getMoreTextLimit');
 			return vm.hmLimit && vm.hmLimit < vm.hmText.length ? vm.hmLimit - vm.hmText.length : 0;
 		}
 
 		function setLessAndMoreText() {
-			$log.debug('setLessAndMoreText');
 			vm.lessText = $filter('limitTo')(vm.hmText, vm.hmLimit);
 			vm.moreText = $filter('limitTo')(vm.hmText, getMoreTextLimit());	
 		}
 
 		function initialize() {
-			$log.debug('initialize');
 			setToggleMoreText();
 			setToggleLessText();
 			validateLimit();
@@ -130,7 +117,6 @@ function readMore($templateCache) {
 
 		$scope.$watch('vm.hmText', function (newValue, oldValue) {
 			if (newValue != oldValue) {
-				$log.debug('hmText changed');
 				validateLimit();
 				setLessAndMoreText();
 				setShowToggle();
@@ -139,7 +125,6 @@ function readMore($templateCache) {
 
 		$scope.$watch('vm.hmLimit', function (newValue, oldValue) {
 			if (newValue != oldValue) {
-				$log.debug('hmLimit changed');
 				validateLimit();
 				setLessAndMoreText();
 				setShowToggle();
