@@ -4,9 +4,6 @@ readMore.$inject = ["$templateCache"];
 angular
 	.module('hm.readmore', ['ngAnimate', 'ngSanitize'])
 	.directive('hmReadMore', readMore)
-	.config(["$logProvider", function ($logProvider) {
-		$logProvider.debugEnabled(false);
-	}]);
 
 /** @ngInject */
 function readMore($templateCache) {
